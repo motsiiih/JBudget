@@ -1,5 +1,5 @@
 ## JBudget
-Java simple application for keeping track of financial incomes and outcomes. 
+Simple Java application for keeping track of financial incomes and outcomes. 
 
 <p align="center">
 <img src="https://i.imgur.com/NjN50HL.png" height="180">
