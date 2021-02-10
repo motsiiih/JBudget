@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.pa.jbudget105467.view.JavaFxTransactionsController">
+    <bottom>
+        <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+            <Button mnemonicParsing="false" onAction="#homeScene" style="-fx-background-color: red;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            </items>
+        </ToolBar>
+    </bottom>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Transactions">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" prefHeight="527.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minWidth="472.0" prefHeight="525.0" prefWidth="490.0">
+                                 <children>
+                                    <TableView fx:id="tableView" layoutX="82.0" layoutY="35.0" prefHeight="525.0" prefWidth="432.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="idColumn" prefWidth="59.031747817993164" resizable="false" text="ID" />
+                                        <TableColumn fx:id="dateColumn" prefWidth="219.96824645996094" resizable="false" text="Date" />
+                                          <TableColumn fx:id="amountColumn" prefWidth="204.0" resizable="false" text="Amount" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="418.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="163.0" prefHeight="525.0" prefWidth="255.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label minWidth="235.0" prefHeight="39.0" prefWidth="390.0" text="Create a new transaction">
+                                             <font>
+                                                <Font name="Hiragino Sans W1" size="16.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="15.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="amountTextField" maxWidth="200.0" prefHeight="27.0" prefWidth="200.0" promptText="First Movement Amount">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <DatePicker fx:id="transactionDatePicker" prefHeight="27.0" prefWidth="200.0" promptText="Date">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="20.0" />
+                                             </VBox.margin>
+                                          </DatePicker>
+                                          <ComboBox fx:id="accountComboBox" prefHeight="27.0" prefWidth="200.0" promptText="Select Account">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="20.0" />
+                                             </VBox.margin>
+                                          </ComboBox>
+                                          <ComboBox fx:id="movementTypeComboBox" prefHeight="27.0" prefWidth="200.0" promptText="Select Type">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="20.0" />
+                                             </VBox.margin>
+                                          </ComboBox>
+                                          <Button fx:id="confirmNewTransactionButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#confirmNewTransactionButtonIsPushed" style="-fx-background-color: #47EA05;" text="Confirm" textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="30.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Hiragino Sans W3" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Line endX="206.171875" startX="345.92364501953125">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="25.0" />
+                                             </VBox.margin>
+                                          </Line>
+                                          <Label minWidth="235.0" prefHeight="39.0" prefWidth="390.0" text="Edit selected transaction">
+                                             <font>
+                                                <Font name="Hiragino Sans W1" size="16.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="15.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets top="7.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Button fx:id="showMovementsButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openMovementsWindow" style="-fx-background-color: #ffda03 #ffda03;" text="Edit" textFill="WHITE">
+                                             <font>
+                                                <Font name="Hiragino Sans W3" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children></AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Scheduled Transactions">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" prefHeight="527.0" prefWidth="900.0">
+                           <items>
+                              <AnchorPane minWidth="472.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TableView fx:id="scheduledTableView" prefHeight="525.0" prefWidth="445.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="scheduledIdColumn" prefWidth="59.031747817993164" resizable="false" text="ID" />
+                                          <TableColumn fx:id="scheduledDateColumn" prefWidth="219.96824645996094" resizable="false" text="Date" />
+                                          <TableColumn fx:id="scheduledAmountColumn" prefWidth="204.0" resizable="false" text="Amount" />
+                                       </columns>
+                                    </TableView>
+                                 </children></AnchorPane>
+                              <AnchorPane minWidth="418.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox minWidth="400.0" prefHeight="525.0" prefWidth="426.0" style="-fx-background-color: white;">
+                                       <children>
+                                          <Label minWidth="235.0" prefHeight="39.0" prefWidth="390.0" text="Create a new scheduled transaction">
+                                             <font>
+                                                <Font name="Hiragino Sans W1" size="16.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="15.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="scheduledAmountTextField" maxWidth="200.0" prefHeight="27.0" prefWidth="200.0" promptText="First Movement Amount">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <DatePicker fx:id="scheduledTransactionDatePicker" prefHeight="27.0" prefWidth="200.0" promptText="Date">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="20.0" />
+                                             </VBox.margin>
+                                          </DatePicker>
+                                          <ComboBox fx:id="scheduledAccountComboBox" prefHeight="27.0" prefWidth="200.0" promptText="Select Account">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="20.0" />
+                                             </VBox.margin>
+                                          </ComboBox>
+                                          <ComboBox fx:id="scheduledMovementTypeComboBox" prefHeight="27.0" prefWidth="200.0" promptText="Select Type">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="20.0" />
+                                             </VBox.margin>
+                                          </ComboBox>
+                                          <Button fx:id="confirmNewScheduledTransactionButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#confirmNewScheduledTransactionButtonIsPushed" style="-fx-background-color: #47EA05;" text="Confirm" textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="20.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Hiragino Sans W3" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Line endX="206.171875" startX="345.92364501953125">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="15.0" />
+                                             </VBox.margin>
+                                          </Line>
+                                          <Label minWidth="235.0" prefHeight="39.0" prefWidth="410.0" text="Accredit selected scheduled transaction">
+                                             <font>
+                                                <Font name="Hiragino Sans W1" size="16.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="15.0" />
+                                             </padding>
+                                          </Label>
+                                          <Button fx:id="addScheduledToTransactionsButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#accreditScheduledTransaction" style="-fx-background-color: #0779F2;" text="Accredit" textFill="WHITE">
+                                             <font>
+                                                <Font name="Hiragino Sans W3" size="13.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Line endX="206.171875" startX="345.92364501953125">
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="15.0" />
+                                             </VBox.margin>
+                                          </Line>
+                                          <Label minWidth="235.0" prefHeight="39.0" prefWidth="390.0" text="Edit selected scheduled transaction">
+                                             <font>
+                                                <Font name="Hiragino Sans W1" size="16.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="15.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets top="3.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Button fx:id="showScheduledMovementsButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openScheduledMovementsWindow" style="-fx-background-color: #ffda03;" text="Edit" textFill="WHITE">
+                                             <font>
+                                                <Font name="Hiragino Sans W3" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children></AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
